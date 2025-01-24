@@ -1,0 +1,24 @@
+replicaCount: 1
+
+image:
+  repository: stoplight/prism
+  tag: "4"
+  pullPolicy: IfNotPresent
+
+args: ["mock", "/path/to/your/openapi.yaml"] # Update path to your OpenAPI specification
+
+service:
+  type: ClusterIP
+  port: 4010
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 256Mi
+  requests:
+    cpu: 250m
+    memory: 128Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
